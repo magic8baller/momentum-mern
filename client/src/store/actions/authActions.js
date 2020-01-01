@@ -33,7 +33,7 @@ export const loginUser = (formProps, callback) => async dispatch => {
 export const loginWithToken = token => async dispatch => {
 	try {
 		setAuthToken(token)
-		let userResponse = await axios.get('/me')
+		let userResponse = await axios.get('http://localhost:8080/me')
 		dispatch({type: 'SET_CURRENT_USER', payload: {token, user: userResponse.data}})
 
 	} catch (e) {

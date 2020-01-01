@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 
 class Dashboard extends Component {
-	render() {
+	render () {
 		return (
 			<div>
-Dashboard
+				Dashboard
 			</div>
 		)
 	}
