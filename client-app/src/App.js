@@ -7,6 +7,7 @@ import Main from './components/Main';
 import Register from './components/Auth/Register'
 import PrivateRoute from './components/Auth/PrivateRoute'
 import Login from './components/Auth/Login'
+import AdminEditor from './components/Admin/AdminEditor'
 import store from './store';
 import {loginWithToken} from './store/actions/authActions.js'
 if (localStorage.token) {
@@ -22,6 +23,7 @@ const App = props => {
 					<Route path='/login' component={Login} />
 					<Switch>
 
+						<Route path='/admin' component={AdminEditor} />
 						<PrivateRoute exact path='/dashboard' component={Dashboard} />
 
 					</Switch>
