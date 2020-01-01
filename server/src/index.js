@@ -1,4 +1,4 @@
-import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
@@ -11,10 +11,11 @@ const {PORT} = process.env
 
 connectDB()
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: true}))
 app.use(logger('dev'))
+app.use(express.json())
+app.use(express.urlencoded({extended: false}))
 app.use(cors())
+app.use(cookieParser())
 app.use('/', usersRouter)
 app.get('/', (req, res) => {
 	res.send('VERY CA$H MONEY')
