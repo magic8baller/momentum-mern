@@ -41,11 +41,17 @@ export const loginWithToken = token => async dispatch => {
 		window.location.href = '/login'
 	}
 }
-export const logoutUser = () => dispatch => {
-	localStorage.removeItem('token')
-	setAuthToken(false)
-	dispatch(setCurrentUser({}))
-	// return {type: LOGOUT_USER, payload: ''}
+export const logoutUser = (token) => dispatch => {
+	try {
+
+		localStorage.removeItem('token')
+		setAuthToken(token)
+		axios.post('http://localhost:8080/me/logout')
+
+		dispatch({type: 'LOGOUT_USER', payload: ''})
+	} catch (error) {
+		console.error(error.message)
+	}
 }
 export const setCurrentUser = decoded => {
 	return {type: 'SET_CURRENT_USER', payload: decoded}

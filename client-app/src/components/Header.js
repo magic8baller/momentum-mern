@@ -1,26 +1,28 @@
-import {Link} from 'react-router-dom';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import React, {Component} from 'react'
-
+import {Link} from 'react-router-dom';
+import {logoutUser} from '../store/actions/authActions';
 class Header extends Component {
 
+
 	renderLinks = () => {
-		// if (this.props.isAuthenticated && this.props.token) {
+		if (this.props.isAuthenticated && this.props.token) {
 		return (
 			<div>
-				<Link to="/logout">Sign Out</Link>
+				<a href='#' onClick={() => this.props.logoutUser(this.props.token)}>Sign Out</a> &nbsp; &nbsp;
 				<Link to="/feature">Feature</Link>
-				{/* </div> */}
-				{/* ); */}
-				{/* } else { */}
-				{/* return ( */}
-				{/* <div> */}
-				<Link to="/register">Sign Up</Link>
+				</div>
+				);
+				 } else {
+				 return (
+				 <div>
+						 <Link to="/register">Sign Up</Link> &nbsp; &nbsp;
 				<Link to="/login">Sign In</Link>
 			</div>
 		);
 	}
-	// }
+}
+
 	render () {
 		return (
 			<div className='header'>
@@ -30,4 +32,5 @@ class Header extends Component {
 	}
 }
 const mapStateToProps = state => ({isAuthenticated: state.auth.isAuthenticated, token: state.auth.token})
-export default connect(mapStateToProps)(Header)
+
+export default connect(mapStateToProps, {logoutUser})(Header)
