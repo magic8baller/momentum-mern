@@ -4,15 +4,15 @@ import {loadUser} from '../store/actions/authActions'
 import Greeting from './Greeting'
 import TodosContainer from './Todo/TodosContainer'
 class Dashboard extends Component {
-	componentDidMount() {
-		this.props.loadUser()
-	}
+	// componentDidMount() {
+	// 	this.props.loadUser()
+	// }
 	render () {
 		return (
 			<section className="section">
 			<Greeting/>
 			<h2>hello</h2>
-				<TodosContainer/>
+				{/* <TodosContainer/> */}
 			</section>
 		)
 	}

@@ -4,7 +4,7 @@ class Greeting extends Component {
 	render() {
 		return (
 			<div>
-				Hello, {this.props.auth.user.name}
+				Hello, 
 			</div>
 		)
 	}

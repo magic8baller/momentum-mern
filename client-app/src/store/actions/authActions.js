@@ -9,6 +9,7 @@ export const registerUser = (formProps, callback) => async dispatch => {
 		setAuthToken(token)
 		const decodedToken = parseJwt(token)
 		dispatch(setCurrentUser(decodedToken))
+		callback()
 	} catch (e) {
 		dispatch({type: 'AUTHENTICATE_ERROR', payload: 'Email is already registered'})
 	}
@@ -24,15 +25,15 @@ export const loginUser = (formProps, callback) => async dispatch => {
 		setAuthToken(token)
 		const decoded = parseJwt(token)
 		dispatch(setCurrentUser(decoded))
-		window.location.href = "/"
+		callback()
 	} catch (e) {
 		dispatch({type: 'AUTHENTICATE_ERROR', payload: 'Invalid login credentials'})
 	}
 }
 
 export const loginWithToken = token => async dispatch => {
-	setAuthToken(token)
 	try {
+		setAuthToken(token)
 		let userResponse = await axios.get('http://localhost:8080/me')
 		dispatch({type: 'SET_CURRENT_USER', payload: {token, user: userResponse.data}})
 
