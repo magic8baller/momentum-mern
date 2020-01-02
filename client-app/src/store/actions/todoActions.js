@@ -4,7 +4,7 @@ const {FETCH_TODOS, TODOS_LOADING, ADD_TODO, DELETE_TODO, EDIT_TODO, SET_CURRENT
 export const fetchTodos = () => async dispatch => {
 	dispatch({type: TODOS_LOADING})
 	try {
-		const fetchAllResponse = await API.get('/todos')
+		const fetchAllResponse = await API.get('/api/todos')
 		dispatch({type: FETCH_TODOS, payload: fetchAllResponse.data})
 	} catch (error) {
 		setError(error)
@@ -13,7 +13,7 @@ export const fetchTodos = () => async dispatch => {
 
 export const addTodo = (newTodo, callback) => async (dispatch) => {
 	try {
-		const createTodoResponse = await API.post('/todos', newTodo)
+		const createTodoResponse = await API.post('/api/todos', newTodo)
 		dispatch({type: ADD_TODO, payload: createTodoResponse.data})
 	} catch (error) {
 		setError(error)
@@ -28,7 +28,7 @@ export const editTodo = (updatedTodo, id) => async (dispatch, getState) => {
 			...selectedTodo, ...updatedTodo
 		}
 
-		const editTodoResponse = await API.put(`/todos/${id}`, updatedTodo)
+		const editTodoResponse = await API.put(`/api/todos/${id}`, updatedTodo)
 		dispatch({type: EDIT_TODO, payload: editTodoResponse.data})
 	} catch (error) {
 		setError(error)
@@ -39,7 +39,7 @@ export const setTodoStatus = id => async (dispatch, getState) => {
 	try {
 		const selectedTodo = getState().todos.todo.find(todo => todo._id === id)
 		const updatedTodo = {...selectedTodo, isCompleted: !isCompleted}
-		const updateStatusResponse = await API.put(`/todos/${id}`, updatedTodo)
+		const updateStatusResponse = await API.put(`/api/todos/${id}`, updatedTodo)
 		dispatch({type: 'SET_TODO_STATUS', payload: updateStatusResponse.data})
 	} catch (error) {
 		setError(error)
@@ -48,7 +48,7 @@ export const setTodoStatus = id => async (dispatch, getState) => {
 
 export const deleteTodo = id => async dispatch => {
 	try {
-		await API.delete(`/todos/${id}`)
+		await API.delete(`/api/todos/${id}`)
 		dispatch({type: 'DELETE_TODO', payload: id})
 	} catch (error) {
 		setError(error)

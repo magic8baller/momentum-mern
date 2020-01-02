@@ -6,7 +6,7 @@ class Header extends Component {
 
 
 	renderLinks = () => {
-		if (this.props.isAuthenticated && this.props.token) {
+		if (this.props.isAuthenticatedn) {
 		return (
 			<div>
 				<a href='#' onClick={() => this.props.logoutUser(this.props.token)}>Sign Out</a> &nbsp; &nbsp;
