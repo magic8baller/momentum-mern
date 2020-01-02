@@ -1,12 +1,19 @@
 import React, {Component} from 'react'
-
+import {connect} from 'react-redux'
+import Greeting from './Greeting'
+import TodosContainer from './Todo/TodosContainer'
 class Dashboard extends Component {
+
 	render () {
 		return (
 			<div>
-				Dashboard
+			<Greeting/>
+				<TodosContainer/>
 			</div>
 		)
 	}
 }
-export default Dashboard
+
+
+
+export default connect()(Dashboard)
