@@ -9,6 +9,7 @@ export const registerUser = (formProps, callback) => async dispatch => {
 		setAuthToken(token)
 		const decodedToken = parseJwt(token)
 		dispatch(setCurrentUser(decodedToken))
+		callback()
 	} catch (e) {
 		dispatch({type: 'AUTHENTICATE_ERROR', payload: 'Email is already registered'})
 	}
