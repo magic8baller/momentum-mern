@@ -1,5 +1,5 @@
-import {quotesReducer} from '../constants'
-const {FETCH_QUOTES, FETCH_SINGLE_QUOTE, FAVORITE_QUOTE, ADD_QUOTE, REMOVE_FAVORITED_QUOTE} = quotesReducer
+import {quoteConstants} from '../constants'
+const {FETCH_QUOTES, FETCH_SINGLE_QUOTE, FAVORITE_QUOTE, ADD_QUOTE, REMOVE_FAVORITED_QUOTE, UPDATE_QUOTES} = quoteConstants
 
 const initialState = {
 	quotes: [],
@@ -21,7 +21,7 @@ export default (state = initialState, action) => {
 			const updatedQuote = state.quotes.map(quote => quote._id === action.payload ? {...quote, favorite: true} : quote)
 			return {...state, quotes: [...state.quotes, updatedQuote]}
 		case REMOVE_FAVORITED_QUOTE:
-			return {...state, quotes: [...state.quotes, filteredQuotes]}
+			// return {...state, quotes: [...state.quotes, filteredQuotes]}
 		default:
 			return state;
 	}
