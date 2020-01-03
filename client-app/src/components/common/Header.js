@@ -1,18 +1,18 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
-import {logoutUser} from '../../store/actions/authActions';
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
+import {logoutUser} from '../../store/actions/authActions'
 class Header extends Component {
 
 
 	renderLinks = () => {
-		if (this.props.isAuthenticatedn) {
+		if (this.props.isAuthenticated) {
 		return (
 			<div>
 				<a href='/' onClick={() => this.props.logoutUser(this.props.token)}>Sign Out</a> &nbsp; &nbsp;
 				<Link to="/">Feature</Link>
 				</div>
-				);
+				)
 				 } else {
 				 return (
 				 <div>

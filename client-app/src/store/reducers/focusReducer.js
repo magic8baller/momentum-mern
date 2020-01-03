@@ -19,6 +19,6 @@ export default (state = initialState, action) => {
 			case FOCUS_ERROR:
 				return {...state, errorMessage: action.payload}
 		default:
-			return state;
+			return state
 	}
 }

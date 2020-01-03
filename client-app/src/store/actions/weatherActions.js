@@ -1,7 +1,7 @@
-import {weatherAPI} from '../../API';
-import {weatherConstants} from '../constants';
+import {weatherAPI} from '../../API'
+import {weatherConstants} from '../constants'
 const {GEOLOCATION_DENIED, GET_CURRENT_WEATHER, GET_GEOLOCATION, WEATHER_ERROR} = weatherConstants
-const {REACT_APP_OPEN_WEATHER_KEY} = process.env;
+const {REACT_APP_OPEN_WEATHER_KEY} = process.env
 
 export const getGeolocation = () => async dispatch => {
 	navigator.geolocation.getCurrentPosition(position => {

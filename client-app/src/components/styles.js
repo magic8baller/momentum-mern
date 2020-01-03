@@ -4,4 +4,4 @@ export const styles = theme => ({
 		flexDirection: "row wrap",
 		padding: 20
 	}
-});
+})

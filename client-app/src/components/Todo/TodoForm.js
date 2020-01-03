@@ -1,10 +1,9 @@
 
-import React, {Component} from 'react';
-import {compose} from 'redux';
-import {Field, reduxForm} from 'redux-form';
-import {addTodo} from '../../store/actions/todoActions.js';
-// import {setEmail} from '../../store/actions'
-import {connect} from 'react-redux';
+import React, {Component} from 'react'
+import {compose} from 'redux'
+import {Field, reduxForm} from 'redux-form'
+import {addTodo} from '../../store/actions/todoActions.js'
+import {connect} from 'react-redux'
 class TodoForm extends Component {
 
 	onSubmit = formProps => {

@@ -23,6 +23,6 @@ export default (state = initialState, action) => {
 		case REMOVE_FAVORITED_QUOTE:
 			// return {...state, quotes: [...state.quotes, filteredQuotes]}
 		default:
-			return state;
+			return state
 	}
 }

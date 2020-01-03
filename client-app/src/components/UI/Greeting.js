@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
 class Greeting extends Component {
 	render () {
 		return (
@@ -13,4 +13,4 @@ class Greeting extends Component {
 
 const mapStateToProps = state => ({user: state.auth.user})
 
-export default connect(mapStateToProps)(Greeting);
+export default connect(mapStateToProps)(Greeting)

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {parseJwt, setAuthToken} from '../../utils'
+import {parseJwt, setAuthToken} from '../../utils/tokenAuth'
 
 export const registerUser = (formProps, callback) => async dispatch => {
 	try {

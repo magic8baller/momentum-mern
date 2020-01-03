@@ -55,6 +55,6 @@ case FETCH_TODOS:
 								errorMessage: action.payload
 							}
 		default:
-			return state;
+			return state
 	}
 }

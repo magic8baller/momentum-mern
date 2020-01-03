@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import TodoItem from './TodoItem'
 import {connect} from 'react-redux'
 import {deleteTodo} from '../../store/actions/todoActions'
-import List from "@material-ui/core/List";
+import List from "@material-ui/core/List"
 class TodoList extends Component {
 
 	handleDelete = (id) => {

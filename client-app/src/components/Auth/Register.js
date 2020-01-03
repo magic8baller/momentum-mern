@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {compose} from 'redux';
-import {Field, reduxForm} from 'redux-form';
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {compose} from 'redux'
+import {Field, reduxForm} from 'redux-form'
 
-import {registerUser} from '../../store/actions/authActions.js';
+import {registerUser} from '../../store/actions/authActions'
 class Register extends Component {
 
 	onSubmit = formProps => {
