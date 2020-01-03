@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {logoutUser} from '../store/actions/authActions';
+import {logoutUser} from '../../store/actions/authActions';
 class Header extends Component {
 
 
@@ -9,8 +9,8 @@ class Header extends Component {
 		if (this.props.isAuthenticatedn) {
 		return (
 			<div>
-				<a href='#' onClick={() => this.props.logoutUser(this.props.token)}>Sign Out</a> &nbsp; &nbsp;
-				<Link to="/feature">Feature</Link>
+				<a href='/' onClick={() => this.props.logoutUser(this.props.token)}>Sign Out</a> &nbsp; &nbsp;
+				<Link to="/">Feature</Link>
 				</div>
 				);
 				 } else {

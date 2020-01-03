@@ -1,21 +1,30 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {loadUser} from '../store/actions/authActions'
-import Greeting from './Greeting'
+// import {styles} from './styles'
+import Greeting from './UI/Greeting'
+import Clock from './UI/Clock'
+import Weather from './Weather/Weather'
+// import {withStyles} from "@material-ui/core/styles";
+import {getGeolocation} from '../store/actions/weatherActions'
 import TodosContainer from './Todo/TodosContainer'
 class Dashboard extends Component {
+
 	componentDidMount() {
-		this.props.loadUser()
+	this.props.getGeolocation()
 	}
+
 	render () {
 		return (
-			<section className="section">
+			<div>
+			<Clock/>
 			<Greeting/>
-			<h2>hello</h2>
+			<Weather/>
 				<TodosContainer/>
-			</section>
+			</div>
 		)
 	}
 }
 
-export default connect(null, {loadUser})(Dashboard)
+const mapStateToProps = state => ({position: state.position.coords})
+
+export default connect(mapStateToProps, {getGeolocation})(Dashboard)

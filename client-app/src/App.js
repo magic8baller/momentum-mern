@@ -5,7 +5,7 @@ import Dashboard from './components/Dashboard';
 import Landing from './components/Landing';
 import Main from './components/Main';
 import Register from './components/Auth/Register'
-import PrivateRoute from './components/Auth/PrivateRoute'
+import PrivateRoute from './components/common/PrivateRoute'
 import Login from './components/Auth/Login'
 import AddTodo from './components/Todo/AddTodo'
 import EditTodo from './components/Todo/EditTodo'

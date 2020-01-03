@@ -10,7 +10,7 @@ class Login extends Component {
 	onSubmit = formProps => {
 		this.props.loginUser(formProps, () => {
 
-			this.props.history.push('/')
+			this.props.history.push('/dashboard')
 		})
 		console.log(formProps)
 	}
@@ -36,7 +36,7 @@ class Login extends Component {
 					/>
 				</fieldset>
 				<div>{this.props.errorMessage}</div>
-				<button>Sign Up!</button>
+				<button>Sign In!</button>
 			</form>
 
 		)

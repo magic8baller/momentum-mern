@@ -1,12 +1,25 @@
-import React, { Component } from 'react'
-
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {fetchTodos} from '../../store/actions/todoActions'
+import TodoForm from './TodoForm'
+import TodoList from './TodoList'
 class TodosContainer extends Component {
-	render() {
+
+	componentDidMount () {
+		this.props.fetchTodos()
+	}
+	render () {
 		return (
-			<div>
-Todos Container
+			<div className='container'>
+			<h2>Todo List</h2>
+			<TodoForm/>
+			<TodoList todos={this.props.todos}/>
+
 			</div>
 		)
 	}
 }
-export default TodosContainer
+
+const mapStateToProps = state => ({todos: state.todo.todos})
+
+export default connect(mapStateToProps, {fetchTodos})(TodosContainer)
