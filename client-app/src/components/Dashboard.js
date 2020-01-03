@@ -11,7 +11,6 @@ class Dashboard extends Component {
 
 	componentDidMount() {
 	this.props.getGeolocation()
-
 	}
 
 	render () {
