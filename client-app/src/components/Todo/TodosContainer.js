@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchTodos} from '../../store/actions/todoActions'
+import TodoForm from './TodoForm'
 import TodoList from './TodoList'
 class TodosContainer extends Component {
 
@@ -11,6 +12,7 @@ class TodosContainer extends Component {
 		return (
 			<div className='container'>
 			<h2>Todo List</h2>
+			<TodoForm/>
 			<TodoList todos={this.props.todos}/>
 
 			</div>

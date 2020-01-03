@@ -9,3 +9,7 @@ export default axios.create({
 		}
 	}
 })
+
+export const weatherAPI = axios.create({
+	baseURL: 'https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather'
+})

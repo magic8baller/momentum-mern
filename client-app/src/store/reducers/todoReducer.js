@@ -5,7 +5,7 @@ const initialState = {
 	isLoading: false,
 	todos: [],
 	currentTodo: null,
-	error: null
+	errorMessage: null
 }
 
 export default (state = initialState, action) => {
@@ -52,7 +52,7 @@ case FETCH_TODOS:
 						case TODO_ERROR:
 							return {
 								...state,
-								error: action.payload
+								errorMessage: action.payload
 							}
 		default:
 			return state;

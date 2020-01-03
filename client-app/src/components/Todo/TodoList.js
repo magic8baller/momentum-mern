@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TodoItem from './TodoItem'
 import {connect} from 'react-redux'
 import {deleteTodo} from '../../store/actions/todoActions'
+import List from "@material-ui/core/List";
 class TodoList extends Component {
 
 	handleDelete = (id) => {
@@ -9,9 +10,9 @@ class TodoList extends Component {
 	}
 	render() {
 		return (
-			<ul>
+			<List>
 				{this.props.todos.map((todo => <TodoItem todo={todo} handleDelete={() => this.handleDelete(todo._id)}/>))}
-			</ul>
+			</List>
 		)
 	}
 }

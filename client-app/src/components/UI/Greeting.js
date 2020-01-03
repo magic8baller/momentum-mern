@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
-import {connect} from 'react-redux'
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 class Greeting extends Component {
-	render() {
+	render () {
 		return (
-			<div>
-Hello, {this.props.user.name}!
+			<div><h1>
+				Hello, {this.props.user.name}!
+			</h1>
 			</div>
 		)
 	}

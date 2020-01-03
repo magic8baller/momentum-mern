@@ -1,5 +1,5 @@
 import API from '../../API'
-import {setAuthToken} from '../../utils'
+// import {setAuthToken} from '../../utils'
 import {todoConstants} from '../constants'
 const {FETCH_TODOS, TODOS_LOADING, ADD_TODO, DELETE_TODO, EDIT_TODO, SET_CURRENT_TODO, CLEAR_CURRENT_TODO, TODO_ERROR} = todoConstants
 export const fetchTodos = () => async dispatch => {
@@ -15,8 +15,9 @@ export const fetchTodos = () => async dispatch => {
 
 export const addTodo = (newTodo, callback) => async (dispatch) => {
 	try {
-		const createTodoResponse = await API.post('/todos', newTodo)
+		const createTodoResponse = await API.post('/todos', {...newTodo, text: newTodo.text})
 		dispatch({type: ADD_TODO, payload: createTodoResponse.data})
+		callback()
 	} catch (error) {
 		setError(error)
 	}
@@ -25,10 +26,10 @@ export const addTodo = (newTodo, callback) => async (dispatch) => {
 export const editTodo = (updatedTodo, id) => async (dispatch, getState) => {
 	try {
 
-		const selectedTodo = getState().todos.todo.find(todo => todo._id === id)
-		const editedTodo = {
-			...selectedTodo, ...updatedTodo
-		}
+		// const selectedTodo = getState().todos.todo.find(todo => todo._id === id)
+		// const editedTodo = {
+		// 	...selectedTodo, ...updatedTodo
+		// }
 
 		const editTodoResponse = await API.put(`/todos/${id}`, updatedTodo)
 		dispatch({type: EDIT_TODO, payload: editTodoResponse.data})
@@ -51,7 +52,7 @@ export const setTodoStatus = id => async (dispatch, getState) => {
 export const deleteTodo = id => async dispatch => {
 	try {
 		await API.delete(`/todos/${id}`)
-		dispatch({type: 'DELETE_TODO', payload: id})
+		dispatch({type: DELETE_TODO, payload: id})
 	} catch (error) {
 		setError(error)
 	}
