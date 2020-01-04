@@ -7,7 +7,7 @@ import PrivateRoute from './components/common/PrivateRoute'
 import Dashboard from './components/Dashboard'
 import Landing from './components/Landing'
 import Main from './components/Main'
-import AddTodo from './components/Todo/AddTodo'
+import AddTodoForm from './components/Todo/AddTodoForm'
 import EditTodo from './components/Todo/EditTodo'
 
 const Router = () => (
@@ -19,7 +19,7 @@ const Router = () => (
 			<Switch>
 				<PrivateRoute path='/admin' exact component={AdminEditor} />
 				<PrivateRoute path='/dashboard' exact component={Dashboard} />
-				<PrivateRoute path="/addTodo" exact component={AddTodo} />
+				<PrivateRoute path="/addTodo" exact component={AddTodoForm} />
 				<PrivateRoute path="/editTodo/:id" exact component={EditTodo} />
 			</Switch>
 		</Main>

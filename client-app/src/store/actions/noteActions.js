@@ -18,7 +18,7 @@ export const fetchNotes = () => async dispatch => {
 
 export const addNote = (newNote, callback) => async (dispatch) => {
 	try {
-		const createNoteResponse = await API.post('/api/notes', {...newNote, text: newNote.text})
+		const createNoteResponse = await API.post('/api/notes', {...newNote, title: newNote.title, body: newNote.body})
 		dispatch({type: ADD_NOTE, payload: createNoteResponse.data})
 		callback()
 	} catch (error) {
@@ -27,10 +27,11 @@ export const addNote = (newNote, callback) => async (dispatch) => {
 	}
 }
 
-export const updateNote = (updatedNote, id) => async (callback) => {
+export const updateNote = (id, updatedNote) => async (dispatch) => {
 	try {
 		const updateNoteResponse = await API.put(`/api/notes/${id}`, {...updatedNote, title: updatedNote.title, body: updatedNote.body, updatedAt: new Date()})
 		dispatch({type: UPDATE_NOTE, payload: updateNoteResponse.data})
+		callback()
 	} catch (e) {
 		setError(error)
 	}

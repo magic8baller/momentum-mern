@@ -17,14 +17,20 @@ export const addTodo = (newTodo, callback) => async (dispatch) => {
 	try {
 		const createTodoResponse = await API.post('/api/todos', {...newTodo, text: newTodo.text})
 		dispatch({type: ADD_TODO, payload: createTodoResponse.data})
-		callback()
+	callback()
 	} catch (error) {
 		console.error(error)
 		setError(error)
 	}
 }
 
+export const editTodo = (newTodo, callback) => async dispatch => {
+	try {
 
+	} catch (error) {
+		setError(error)
+	}
+}
 
 export const setTodoStatus = id => async (dispatch, getState) => {
 	try {
