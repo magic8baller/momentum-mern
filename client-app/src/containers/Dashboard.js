@@ -15,6 +15,7 @@ class Dashboard extends Component {
 	componentDidMount() {
 		// this.props.loadUser()
 	this.props.getGeolocation()
+	// this.props.setGeolocation()
 	}
 
 	render () {

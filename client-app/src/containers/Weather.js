@@ -13,6 +13,7 @@ class Weather extends Component {
 	componentDidUpdate (prevProps, prevState) {
 		if (this.props.position !== prevProps.position) {
 			this.props.fetchCurrentWeather(this.props.position)
+			// localStorageGeolocation(localStorage.getItem('coords'))
 		}
 	}
 
@@ -21,7 +22,7 @@ class Weather extends Component {
 	return currentWeather ?
 		(<CurrentWeather currentWeather={currentWeather}/>) : (<Spinner />)
 	}
-	
+
 	render () {
 		return (
 			<div>
