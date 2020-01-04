@@ -6,6 +6,7 @@ import Clock from '../components/UI/Clock'
 import Greeting from '../components/UI/Greeting'
 import Weather from './Weather'
 import QuotesContainer from './QuotesContainer'
+import NotesContainer from './NotesContainer'
 
 
 class Dashboard extends Component {
@@ -22,6 +23,7 @@ class Dashboard extends Component {
 			<QuotesContainer/>
 			<Weather/>
 				<TodosContainer/>
+				<NotesContainer/>
 			</div>
 		)
 	}

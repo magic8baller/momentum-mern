@@ -1,4 +1,4 @@
-import {Form, Formik} from 'formik'
+import {Form, Formik, Field} from 'formik'
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {addNote} from '../../store/actions/noteActions.js'
@@ -8,6 +8,35 @@ class AddNoteForm extends Component {
 
 
 	render () {
+
+		const CustomTextAreaField = ({
+			field,
+			form: {touched, errors},
+			label,
+			placeholder,
+			...props
+		}) => {
+			return (
+				<div className="form-group">
+					<div className="input-group">
+						<label htmlFor="">{label}</label>
+						<div className="input-wrap">
+							<textarea
+								// id={props._id}
+								name={field.value.body}
+								className="form-control"
+								placeholder={placeholder}
+								value={field.value.body}
+								onChange={field.onChange}
+								onBlur={field.onBlur}
+							>
+								{field.value.body}
+							</textarea>
+						</div>
+					</div>
+				</div>
+			);
+		};
 
 		const {addNote} = this.props
 		return (
@@ -39,20 +68,33 @@ class AddNoteForm extends Component {
 									onBlur={handleBlur}
 									value={values.title}
 								/>
-								<textarea
-									type='text'
-									name='title'
-									label='note title'
-									onChange={handleChange}
-									onBlur={handleBlur}
-									value={values.title}
-								/>
+								<label htmlFor="note" style={{display: "block"}}>
+								Note:
+            </label>
+								<div className="form-group">
+									<div className="input-group">
+										<label htmlFor="body"></label>
+										<div className="input-wrap">
+											<textarea
+											id='body'
+												name='body'
+												className="form-control"
+												placeholder='Enter somethin'
+												value={values.body}
+												onChange={handleChange}
+												onBlur={handleBlur}
+
+											>
+											</textarea>
+										</div>
+									</div>
+								</div>
 								<button
 									className='btn btn-default'
 									type="submit"
 									disabled={isSubmitting || !isEmpty(errors) || !dirty}
 								>
-									Add Todo
+									Add Note
 								</button>
 							</Form>
 						)}
