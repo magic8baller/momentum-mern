@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {fetchTodos} from '../../store/actions/todoActions'
-import Spinner from '../common/Spinner'
-import AddTodoForm from './AddTodoForm'
-import TodoList from './TodoList'
+import {fetchTodos} from '../store/actions/todoActions'
+import Spinner from '../components/common/Spinner'
+import AddTodoForm from '../components/Todo/AddTodoForm'
+import TodoList from '../components/Todo/TodoList'
 class TodosContainer extends Component {
 
 	componentDidMount () {

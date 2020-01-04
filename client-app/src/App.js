@@ -4,6 +4,8 @@ import Router from './Router'
 import store from './store'
 import {loginWithToken} from './store/actions/authActions'
 
+
+
 if (localStorage.token) {
 	store.dispatch(loginWithToken(localStorage.getItem('token')))
 }

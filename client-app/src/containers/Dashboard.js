@@ -1,10 +1,11 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {getGeolocation} from '../store/actions/weatherActions'
-import TodosContainer from './Todo/TodosContainer'
-import Clock from './UI/Clock'
-import Greeting from './UI/Greeting'
-import Weather from './Weather/Weather'
+import TodosContainer from './TodosContainer'
+import Clock from '../components/UI/Clock'
+import Greeting from '../components/UI/Greeting'
+import Weather from './Weather'
+import QuotesContainer from './QuotesContainer'
 
 
 class Dashboard extends Component {
@@ -18,6 +19,7 @@ class Dashboard extends Component {
 			<div>
 			<Clock/>
 			<Greeting/>
+			<QuotesContainer/>
 			<Weather/>
 				<TodosContainer/>
 			</div>

@@ -1,22 +1,22 @@
 import {Form, Formik} from 'formik'
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {addTodo} from '../../store/actions/todoActions.js'
+import {addNote} from '../../store/actions/noteActions.js'
 import {isEmpty} from '../../validation/is-empty'
 
-class AddTodoForm extends Component {
+class AddNoteForm extends Component {
 
 
 	render () {
 
-		const {todos, addTodo} = this.props
+		const {addNote} = this.props
 		return (
 			<div>
-				<h3>form</h3>
+				<h1>form</h1>
 				<Formik
-					initialValues={{text: ''}}
+					initialValues={{title: '', body: ''}}
 					onSubmit={(values, {resetForm}) => {
-						addTodo(values, () => {
+						addNote(values, () => {
 							this.props.history.push('/')
 						})
 						resetForm({})
@@ -33,11 +33,19 @@ class AddTodoForm extends Component {
 							<Form>
 								<input
 									type='text'
-									name='text'
-									label='todo text'
+									name='title'
+									label='note title'
 									onChange={handleChange}
 									onBlur={handleBlur}
-									value={values.text}
+									value={values.title}
+								/>
+								<textarea
+									type='text'
+									name='title'
+									label='note title'
+									onChange={handleChange}
+									onBlur={handleBlur}
+									value={values.title}
 								/>
 								<button
 									className='btn btn-default'
@@ -56,4 +64,4 @@ class AddTodoForm extends Component {
 
 // const mapStateToProps = state => ({todos: state.todo.todos})
 
-export default connect(null, {addTodo})(AddTodoForm)
+export default connect(null, {addNote})(AddNoteForm)

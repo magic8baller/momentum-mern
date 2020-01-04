@@ -55,12 +55,12 @@ export const loadUser = () => async dispatch => {
 }
 export const logoutUser = (token) => dispatch => {
 	try {
-
-		localStorage.removeItem('token')
 		setAuthToken(token)
 		axios.post('http://localhost:8080/me/logout')
-
+		localStorage.removeItem('token')
+		localStorage.removeItem('coords')
 		dispatch({type: 'LOGOUT_USER', payload: ''})
+		window.location.href='/login'
 	} catch (error) {
 		console.error(error.message)
 	}
