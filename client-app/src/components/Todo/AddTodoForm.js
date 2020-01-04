@@ -1,15 +1,18 @@
 import {Form, Formik} from 'formik'
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {addTodo} from '../../store/actions/todoActions.js'
+import {addTodo, setCurrentTodo} from '../../store/actions/todoActions.js'
 import {isEmpty} from '../../validation/is-empty'
 
 class AddTodoForm extends Component {
 
+	// componentDidMount() {
+	// 	setCurrentTodo(this.props.match.params.id)
+	// }
 
 	render () {
 
-		const {todos, addTodo} = this.props
+		const {todos, addTodo, history, match} = this.props
 		return (
 			<div>
 				<h3>form</h3>
@@ -17,7 +20,7 @@ class AddTodoForm extends Component {
 					initialValues={{text: ''}}
 					onSubmit={(values, {resetForm}) => {
 						addTodo(values, () => {
-							this.props.history.push('/')
+							history.push('/')
 						})
 						resetForm({})
 					}}
@@ -54,6 +57,6 @@ class AddTodoForm extends Component {
 	}
 }
 
-// const mapStateToProps = state => ({todos: state.todo.todos})
+const mapStateToProps = state => ({todos: state.todo.todos})
 
-export default connect(null, {addTodo})(AddTodoForm)
+export default connect(mapStateToProps, {addTodo, setCurrentTodo})(AddTodoForm)

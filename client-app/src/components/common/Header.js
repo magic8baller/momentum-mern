@@ -10,7 +10,7 @@ class Header extends Component {
 		return (
 			<div>
 				<a href='/' onClick={() => this.props.logoutUser(this.props.token)}>Sign Out</a> &nbsp; &nbsp;
-				<Link to="/">Feature</Link>
+				<Link to="/">Dash</Link>
 				</div>
 				)
 				 } else {

@@ -9,7 +9,6 @@ class Login extends Component {
 
 	onSubmit = formProps => {
 		this.props.loginUser(formProps, () => {
-
 			this.props.history.push('/')
 		})
 		console.log(formProps)

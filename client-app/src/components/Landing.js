@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Dashboard from '../containers/Dashboard'
-import Login from './Auth/Login'
+import Login from './Auth/LoginPage'
 class Landing extends Component {
 	render () {
 		return (
 			<div>
-			{this.props.isAuthenticated && this.props.token ? (<Dashboard/>) : (<Login/>)}
+				{this.props.isAuthenticated && this.props.token ? (<Dashboard />) : (<Login />)}
 			</div>
 		)
 	}

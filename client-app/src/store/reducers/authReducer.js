@@ -17,6 +17,8 @@ export default (state = initialState, action) => {
 
 		case 'AUTHENTICATE_ERROR':
 			return {...state, isLoading: false, isAuthenticated: false, errorMessage: action.payload}
+			case 'CLEAR_ERROR':
+				return {...state, errorMessage: null}
 		case 'LOGOUT_USER':
 			return {
 				...state, isAuthenticated: false,
