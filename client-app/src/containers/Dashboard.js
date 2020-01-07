@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {getGeolocation} from '../store/actions/weatherActions'
-// import {loadUser} from '../store/actions/authActions'
-import TodosContainer from './TodosContainer'
 import Clock from '../components/UI/Clock'
 import Greeting from '../components/UI/Greeting'
-import Weather from './Weather'
-import QuotesContainer from './QuotesContainer'
+import {getGeolocation} from '../store/actions/weatherActions'
 import NotesContainer from './NotesContainer'
+import QuotesContainer from './QuotesContainer'
+// import {loadUser} from '../store/actions/authActions'
+import TodosContainer from './TodosContainer'
+import Weather from './Weather'
 
 
 class Dashboard extends Component {
@@ -24,9 +24,13 @@ class Dashboard extends Component {
 			<Clock/>
 			<Greeting/>
 			<QuotesContainer/>
+				<section className="services">
+					<div className="services__center">
 			<Weather/>
 				<TodosContainer/>
 				<NotesContainer/>
+				</div>
+				</section>
 			</div>
 		)
 	}

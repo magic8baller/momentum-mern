@@ -1,6 +1,7 @@
 import API from '../../API'
 import {todoConstants} from '../constants'
-const {FETCH_TODOS, TODOS_LOADING, ADD_TODO, DELETE_TODO, EDIT_TODO, SET_CURRENT_TODO, CLEAR_CURRENT_TODO, TODO_ERROR} = todoConstants
+const {FETCH_TODOS, TODOS_LOADING, ADD_TODO, DELETE_TODO, EDIT_TODO,
+	SET_TODO_STATUS, SET_CURRENT_TODO, CLEAR_CURRENT_TODO, TODO_ERROR} = todoConstants
 export const fetchTodos = () => async dispatch => {
 	dispatch({type: TODOS_LOADING})
 
@@ -24,9 +25,10 @@ export const addTodo = (newTodo, callback) => async (dispatch) => {
 	}
 }
 
-export const editTodo = (newTodo, callback) => async dispatch => {
+export const editTodo = (updatedTodo, id, callback) => async dispatch => {
 	try {
-
+const editTodoResponse = await API.put(`/api/todos/${id}`, updatedTodo)
+dispatch({type: EDIT_TODO, payload: editTodoResponse.data})
 	} catch (error) {
 		setError(error)
 	}
@@ -34,10 +36,10 @@ export const editTodo = (newTodo, callback) => async dispatch => {
 
 export const setTodoStatus = id => async (dispatch, getState) => {
 	try {
-		const selectedTodo = getState().todos.todo.find(todo => todo._id === id)
-		const updatedTodo = {...selectedTodo, isCompleted: false}
+		const currentSelectedTodo = getState().todo.todos.find(todo => todo._id === id)
+		const updatedTodo = {...currentSelectedTodo, completed: !currentSelectedTodo.completed}
 		const updateStatusResponse = await API.put(`/api/todos/${id}`, updatedTodo)
-		dispatch({type: 'SET_TODO_STATUS', payload: updateStatusResponse.data})
+		dispatch({type: SET_TODO_STATUS, payload: updateStatusResponse.data})
 	} catch (error) {
 		setError(error)
 	}

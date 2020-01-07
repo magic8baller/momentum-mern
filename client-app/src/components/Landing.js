@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Dashboard from '../containers/Dashboard'
-import Login from './Auth/LoginPage'
+import Login from './Auth/Login'
 class Landing extends Component {
 	render () {
 		return (

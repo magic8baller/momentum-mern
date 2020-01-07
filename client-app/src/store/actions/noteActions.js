@@ -17,8 +17,10 @@ export const fetchNotes = () => async dispatch => {
 }
 
 export const addNote = (newNote, callback) => async (dispatch) => {
+
 	try {
 		console.log(newNote)
+
 		const createNoteResponse = await API.post('/api/notes', {...newNote, title: newNote.title, body: newNote.body})
 		dispatch({type: ADD_NOTE, payload: createNoteResponse.data})
 		callback()

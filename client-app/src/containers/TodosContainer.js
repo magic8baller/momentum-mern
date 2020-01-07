@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {fetchTodos} from '../store/actions/todoActions'
 import Spinner from '../components/common/Spinner'
 import AddTodoForm from '../components/Todo/AddTodoForm'
+import Section from '../components/common/Section'
 import TodoList from '../components/Todo/TodoList'
 class TodosContainer extends Component {
 
@@ -13,13 +14,21 @@ class TodosContainer extends Component {
 	renderTodoList = () => {
 		return !this.props.isLoading ? <TodoList todos={this.props.todos} /> : <Spinner />
 	}
+
+	renderContainer = () => {
+		return (
+		<>
+		<AddTodoForm />
+		{this.renderTodoList()}
+		</>
+		)
+	}
 	render () {
 		return (
-			<div className='container'>
-				<h2>Todo List</h2>
-				<AddTodoForm />
-				{this.renderTodoList()}
-			</div>
+			<>
+			{this.renderContainer()}
+				{/* <Section title={'todo list'} content={this.renderContainer()}/> */}
+			</>
 		)
 	}
 }

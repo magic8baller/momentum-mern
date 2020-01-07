@@ -1,5 +1,8 @@
 
 import axios from 'axios'
+
+export const setUpperCaseFirstLetter = string => string.charAt(0).toUpperCase() + string.slice(1)
+
 export const setAuthToken = token => {
 	if (token) {
 		localStorage.token = token

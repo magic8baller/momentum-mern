@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {clearError, loadUser} from '../../store/actions/authActions.js'
 import Spinner from '../common/Spinner'
 import LoginForm from './LoginForm'
-class LoginPage extends Component {
+class Login extends Component {
 
 	// componentDidMount () {
 	// 	this.props.loadUser()
@@ -21,32 +21,29 @@ class LoginPage extends Component {
 	// 	}
 	// }
 	render () {
-		// 	if (this.props.isAuthenticated) {
-		// 	this.props.history.push('/')
-		// }
+			if (this.props.isAuthenticated) {
+			this.props.history.push('/')
+		}
 
-		// if (this.props.isLoading) {
-		// 	return (
-		// 		<div style={{textAlign: 'center'}}>
-		// 			<Spinner />
-		// 		</div>
-		// 	)
-		// }
-		return (
-			<section className="section">
-				<div className="columns is-mobile is-multiline is-centered">
-					<div className="column is-12-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
-						<h1 className="title" style={{marginBottom: '12px'}}>
-							WELCOME! Login to Your Account:
-          		</h1>
-						<hr className="is-divider" style={{marginBlockStart: '0'}} />
-						<LoginForm />
-					</div>
+		if (this.props.isLoading) {
+			return (
+				<div style={{textAlign: 'center'}}>
+					<Spinner />
 				</div>
+			)
+		}
+		return (
+			<section class="banner">
+        <div class="banner__container">
+        <h1 class="banner__title">
+			WELCOME!
+				</h1>
+				<LoginForm />
+			</div>
 			</section>
 		)
 	}
-} //end class
+}
 
 const mapStateToProps = state => ({
 	isAuthenticated: state.auth.isAuthenticated,
@@ -57,4 +54,4 @@ const mapStateToProps = state => ({
 export default connect(
 	mapStateToProps,
 	{loadUser, clearError}
-)(LoginPage)
+)(Login)

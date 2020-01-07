@@ -7,26 +7,40 @@ class Header extends Component {
 
 	renderLinks = () => {
 		if (this.props.isAuthenticated) {
-		return (
-			<div>
-				<a href='/' onClick={() => this.props.logoutUser(this.props.token)}>Sign Out</a> &nbsp; &nbsp;
-				<Link to="/">Dash</Link>
-				</div>
-				)
-				 } else {
-				 return (
-				 <div>
-						 <Link to="/register">Sign Up</Link> &nbsp; &nbsp;
-				<Link to="/login">Sign In</Link>
-			</div>
-		);
+			return (
+				<>
+					<a href='/' className="nav__single-link" onClick={() => this.props.logoutUser(this.props.token)}>Sign Out</a> &nbsp; &nbsp;
+				<Link className="nav__single-link" to="/">Dash</Link>
+				</>
+			)
+		} else {
+			return (
+				<>
+					<Link className="nav__single-link" to="/register">Sign Up</Link> &nbsp; &nbsp;
+				<Link className="nav__single-link" to="/login">Sign In</Link>
+				</>
+
+			);
+		}
 	}
-}
 
 	render () {
 		return (
 			<div className='header'>
-				{this.renderLinks()}
+				<nav className="nav">
+					<div className="nav__header">
+						<img
+							src="../../img/skitch.png"
+							alt="logo"
+						/>
+						<span class="nav__btn">
+							<i class="far fa-hand-point-down"></i>
+						</span>
+					</div>
+					<ul class="nav__links">
+						{this.renderLinks()}
+					</ul>
+				</nav>
 			</div>
 		)
 	}

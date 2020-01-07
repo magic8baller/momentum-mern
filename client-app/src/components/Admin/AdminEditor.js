@@ -18,7 +18,7 @@ class AdminEditor extends Component {
 			}
 		}
 
-		axios.get('http://localhost:8080/users', config)
+		axios.get('http://localhost:8000/users', config)
 		.then(res => this.setState({users: res.data}))
 		.catch(err => console.error(err))
 	}

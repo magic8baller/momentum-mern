@@ -6,12 +6,12 @@ const NoteItem = ({note, handleDelete}) => {
 
 		<div>
 			<div style={{border: '1px bold black', padding: '5rem'}}>
-			<div>{new Date().toLocaleString()}</div>
+			<div>{note.updatedAt}</div>
 			<div>
 
 			<button style={{border: '1px bold black', float: 'right'}} onClick={() => handleDelete(note._id)}>X</button>
 			</div>
-			<h6>{note.title}</h6>
+			<h5><b>{note.title}</b></h5>
 			<p>
 {note.body}
 			</p>
