@@ -38,14 +38,14 @@ case FETCH_TODOS:
 
 
 					case EDIT_TODO:
-						const editedTodo = state.todos.map(todo => todo._id === action.payload ? {...todo, text: action.payload.text} : todo)
+						const editedTodo = state.todos.map(todo => todo._id === action.payload._id ? {...todo, ...action.payload} : todo)
 						return {
 							...state,
 							todos: [...state.todos, editedTodo],
 						isLoading: false
 						}
 					case SET_TODO_STATUS:
-						const updatedTodo = state.todos.map(todo => todo._id === action.payload ? action.payload : todo)
+						const updatedTodo = state.todos.map(todo => todo._id === action.payload._id ? action.payload : todo)
 						return {
 							...state,
 							todos: [...state.todos, updatedTodo],
