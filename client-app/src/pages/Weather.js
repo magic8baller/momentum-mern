@@ -1,8 +1,7 @@
 import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import {fetchCurrentWeather} from '../store/actions/weatherActions'
 import Spinner from '../components/common/Spinner'
 import CurrentWeather from '../components/Weather/CurrentWeather'
+
 class Weather extends Component {
 
 	componentDidMount () {
@@ -19,8 +18,8 @@ class Weather extends Component {
 
 	renderCurrentWeather = () => {
 		const {currentWeather} = this.props
-	return currentWeather ?
-		(<CurrentWeather currentWeather={currentWeather}/>) : (<Spinner />)
+		return currentWeather ?
+			(<CurrentWeather currentWeather={currentWeather} />) : (<Spinner />)
 	}
 
 	render () {
@@ -32,6 +31,5 @@ class Weather extends Component {
 	}
 }
 
-const mapStateToProps = (state) => ({position: state.position.coords, currentWeather: state.weather.currentWeather})
 
-export default connect(mapStateToProps, {fetchCurrentWeather})(Weather)
+export default Weather

@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-
-export default class Clock extends Component {
+class ClockUI extends Component {
 	state = {
 		date: new Date()
 	}
@@ -19,9 +18,11 @@ export default class Clock extends Component {
 
 	render () {
 		return (
-			<div>
-				<h1 className='text-center'>{this.state.date.toLocaleTimeString()}</h1>
+			<div className='time'>{this.state.date.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}
 			</div>
 		)
 	}
 }
+
+
+export default ClockUI

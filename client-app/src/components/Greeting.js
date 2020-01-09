@@ -3,8 +3,10 @@ import {connect} from 'react-redux'
 class Greeting extends Component {
 	render() {
 		return (
-			<div>
+			<div className="greet center">
+				<div className="greeting">
 				Hello, {this.props.auth.user.name}
+			</div>
 			</div>
 		)
 	}

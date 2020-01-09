@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {quotesData} from '../quotesData'
+import './Quote.css'
 import QuoteItem from '../components/QuoteItem'
 class QuotesContainer extends Component {
 
