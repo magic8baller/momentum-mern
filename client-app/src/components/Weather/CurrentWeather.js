@@ -8,7 +8,7 @@ const CurrentWeather = ({currentWeather}) => {
 		const renderWeather = () => (
 
 
-			<div className='top-right-flex'>
+			<div className='logo'>
 				<div>
 				<span style={{height: '4px'}}>
 					<img

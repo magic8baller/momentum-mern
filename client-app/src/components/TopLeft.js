@@ -59,7 +59,7 @@ export default class TopLeft extends React.Component {
 					<a href="#" id="chrome-search-link" onClick={this.showSearchInput.bind(this)} title="Search"><i className="fa fa-search
 					" style={{fontSize:'1em'}}></i></a>
 					&nbsp;
-				{/* } */}&nbsp; 
+				{/* } */}&nbsp;
 				{this.state.isHidden &&
 					<input type="text" id="chrome-search-input" value={this.state.inputValue} onChange={this.updateInputValue.bind(this)} autoFocus name="search" onKeyPress={this.googleSearch.bind(this)} onBlur={this.showSearchInput.bind(this)} />
 				}

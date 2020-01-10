@@ -4,9 +4,10 @@ import GreetingUI from '../components/Greeting'
 import './Greeting.css'
 const Greeting = () => (
 
-	<div id="center">
+	<div className="center">
 
 		<ClockUI />
+		<br/>
 		<GreetingUI />
 	</div>
 

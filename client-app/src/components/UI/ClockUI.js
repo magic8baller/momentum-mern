@@ -18,7 +18,7 @@ class ClockUI extends Component {
 
 	render () {
 		return (
-			<div className='time'>{this.state.date.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}
+			<div id="clock" className="widget-container clock"><div className='time'>{this.state.date.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}</div>
 			</div>
 		)
 	}

@@ -9,7 +9,7 @@ import QuotesContainer from '../containers/QuotesContainer'
 import TodosContainer from '../containers/TodosContainer'
 import Weather from '../containers/WeatherContainer'
 import TopLeft from '../components/TopLeft'
-import Wallpaper from './Wallpaper'
+// import Wallpaper from './Wallpaper'
 
 class Dashboard extends Component {
 
@@ -22,25 +22,46 @@ class Dashboard extends Component {
 	render () {
 		return (
 			<main id='main'>
-			<Wallpaper/>
-<div className="row top-row">
-	<div className="top-left-flex">
+			<div id='bg'>
+					<div id="widgets"
+						className="widgets show">
+
+
+<div className="top-row">
+<div className="top-left">
+
 		<TopLeft/>
-	</div>
-			<Weather/>
 </div>
-<div className="row middle-row">
+	{/* <div className="top-left-flex"> */}
+	{/* </div> */}
+	{/* <div className="column"> */}
+<div className="top-right">
+
+			<Weather/>
+
+	</div>
+</div>
+<div className="center">
+
 
 			<Greeting/>
 </div>
-<div className="row bottom-row">
+
+</div>
+<div className="bottom-row">
+	<div className="double-column">
+<div className="column">
 
 			<QuotesContainer/>
+	</div>
+</div>
 </div>
 
-				<TodosContainer/>
-				<NotesContainer/>
->
+				{/* <TodosContainer/>
+				<NotesContainer/> */}
+
+</div>
+
 			</main>
 		)
 	}

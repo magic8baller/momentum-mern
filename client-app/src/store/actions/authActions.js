@@ -1,9 +1,10 @@
-import axios from 'axios'
+
 import {parseJwt, setAuthToken} from '../../utils/tokenAuth'
+import API from '../../API'
 
 export const registerUser = (formProps, callback) => async dispatch => {
 	try {
-		const registerResponse = await axios.post('http://localhost:8000/register', formProps)
+		const registerResponse = await API.post('/register', formProps)
 		const {token} = registerResponse.data
 		localStorage.setItem('token', token)
 		setAuthToken(token)
@@ -18,7 +19,7 @@ export const registerUser = (formProps, callback) => async dispatch => {
 export const loginUser = (formProps, cb) => async dispatch => {
 
 	try {
-		const loginResponse = await axios.post('http://localhost:8000/login', formProps)
+		const loginResponse = await API.post('/login', formProps)
 		const {token} = loginResponse.data
 		localStorage.setItem('token', token)
 		setAuthToken(token)
@@ -33,7 +34,7 @@ export const loginUser = (formProps, cb) => async dispatch => {
 export const loginWithToken = token => async dispatch => {
 	setAuthToken(token)
 	try {
-		let userResponse = await axios.get('http://localhost:8000/me')
+		let userResponse = await API.get('/me')
 		dispatch({type: 'SET_CURRENT_USER', payload: {token, user: userResponse.data}})
 // window.location.href = '/'
 	} catch (e) {
@@ -45,7 +46,7 @@ export const loadUser = () => async dispatch => {
 	dispatch({type: 'LOADING_USER'})
 	setAuthToken(localStorage.token)
 	try {
-		let userResponse = await axios.get('http://localhost:8000/me')
+		let userResponse = await API.get('/me')
 		dispatch({type: 'SET_CURRENT_USER', payload: {user: userResponse.data}})
 
 	} catch (e) {
@@ -56,7 +57,7 @@ export const loadUser = () => async dispatch => {
 export const logoutUser = (token) => dispatch => {
 	try {
 		setAuthToken(token)
-		axios.post('http://localhost:8000/me/logout')
+		API.post('/me/logout')
 		localStorage.removeItem('token')
 		localStorage.removeItem('coords')
 		dispatch({type: 'LOGOUT_USER', payload: ''})

@@ -1,0 +1,31 @@
+
+ .weather__container {
+	 position: relative;
+  padding-top: 14px;
+	padding-right: 20px;
+}
+
+.weather__info {
+	 font-size: 150%;
+  font-weight: 500;
+  line-height: 100%;
+}
+
+#weather__icon {
+	margin-right: 6px;
+}
+
+#weather__location {
+	  display: inline-block;
+  max-width: 110px;
+  padding: 3px 0;
+  margin: 0;
+  font-size: 62.5%;
+  font-weight: 500;
+  outline: 0;
+  text-transform: uppercase;
+  vertical-align: top;
+  overflow-wrap: break-word;
+  opacity: .7;
+  transition: opacity .5s ease;
+}

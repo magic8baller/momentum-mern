@@ -1,114 +1,53 @@
-#center {
-  height: 455px;
-  align-items: center;
-  justify-content: center;
-  width: 90%;
+.clock .time {
+  color: #fff;
+  font-size: 1050%;
+  letter-spacing: -5px;
+  cursor: default;
 }
 
-#center > div {
-  text-align: center;
-}
-
-.time {
-  font-size: 175px;
-}
-
-.ampm {
-  font-size: 30px;
+.clock .format {
+  opacity: 0;
+  position: absolute;
+  left: 101%;
+  bottom: 9%;
+  font-size: 150%;
   text-transform: uppercase;
 }
 
+.clock .format.show {
+  opacity: 1;
+  animation: fadeout 4s ease 4s 1 normal;
+  animation-fill-mode: forwards;
+}
 .greeting {
-  font-size: 60px;
+  display: block;
 }
 
-.focusToDo-main-container {
-  height: 135px;
+.greeting .content {
+  display: inline;
+  font-size: 337.5%;
 }
 
-.container-center-todo {
-  margin-top: 30px;
-  font-size: 25px;
-  font-weight: 500;
+.greeting .name-wrapper {
+  position: relative;
+  white-space: nowrap;
 }
 
-.congrats-container {
-  height: 25px;
-  font-size: 15px;
-  margin: 5px 4px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+.greeting .name {
+  display: inline-block;
+  overflow: hidden;
+  max-width: 12em;
+  padding: 5px 2px 10px;
+  margin: -5px -2px -10px;
+  border-radius: 3px;
+  outline: 0;
+  vertical-align: top;
+  white-space: nowrap;
 }
-
-@keyframes exit-congrat {
-  0% {
-    opacity: 1;
-  }
-  77% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-.congrats-container > *:last-child {
-  margin: 4px 10px;
-  opacity: 0;
-  animation: exit-congrat 4s ease;
-}
-
-@keyframes ping-effect {
-  0% {
-    transform: scale(1);
-  }
-  15% {
-    opacity: 1;
-  }
-  30% {
-    transform: scale(4);
-    opacity: 0;
-  }
-  31% {
-    transform: scale(1);
-  }
-  46% {
-    opacity: 1;
-  }
-  61% {
-    transform: scale(4);
-    opacity: 0;
-  }
-  62% {
-    transform: scale(1);
-  }
-  77% {
-    opacity: 1;
-  }
-  100% {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-
-.ping-animation {
-  border-radius: 50%;
-  color: #FFF;
-  margin: 5px 4px;
-  height: 3px;
-  width: 3px;
-  opacity: 0;
-  border: 0.1px solid #FFF;
-  animation: ping-effect 4s ease;
-}
-
-@media only screen and (max-width: 700px) {
-  .time {
-    font-size: 60px;
-  }
-  .greeting {
-    font-size: 40px;
-  }
+.widget-container {
+  display: inline-block;
+  position: relative;
+  transition: opacity .5s ease;
+  -moz-user-select: none;
+  user-select: none;
 }

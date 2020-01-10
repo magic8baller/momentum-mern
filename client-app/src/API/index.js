@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export default axios.create({
-	baseURL: 'http://localhost:8000',
+	baseURL: 'https://damp-sea-47360.herokuapp.com',
 	headers: {
 		common: {
 			'Content-Type': 'application/json',
